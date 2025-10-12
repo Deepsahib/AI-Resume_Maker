@@ -66,9 +66,9 @@ const Login = () => {
                 // Show success message
                 setSuccess(state === "login" ? "Login successful!" : "Account created successfully!")
                 
-                // Redirect to dashboard after a brief delay
+                // Redirect to home page after a brief delay
                 setTimeout(() => {
-                    navigate('/app')
+                    navigate('/')
                 }, 1000)
             } else {
                 setError(data.message || 'Authentication failed')
