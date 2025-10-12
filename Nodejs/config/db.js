@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 async function getdb() {
   try {
-    await mongoose.connect("mongodb+srv://Sahibdeep:%239y9p82gqv@cluster0.jdtddhw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://simbasahib9:simba%40123@cluster0.kj1ca.mongodb.net/AI_Resume_Maker?retryWrites=true&w=majority&appName=Cluster0";
+    await mongoose.connect(MONGODB_URI);
     console.log("✅ DB connected");
   } catch (err) {
     console.error("❌ MongoDB connection error:", err.message);

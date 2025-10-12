@@ -29,7 +29,7 @@ export const register=async (req,res)=>{
             updatedAt: createuser.updatedAt
         };
         
-        const token = jwt.sign({ id: createuser._id },"sahib", { expiresIn: '1d' });
+        const token = jwt.sign({ id: createuser._id }, process.env.JWT_SECRET || "sahib", { expiresIn: '1d' });
         res.status(201).json({message:"User registered successfully",user:userResponse,token});
     } catch (error) {
         console.error('Registration error:', error);
@@ -62,7 +62,7 @@ export const loginuser=async (req,res)=>{
             updatedAt: user.updatedAt
         };
         
-        const token = jwt.sign({ id: user._id },"sahib", { expiresIn: '1d' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || "sahib", { expiresIn: '1d' });
         res.status(200).json({message:"User logged in successfully",user:userResponse,token});
     } catch (error) {
         console.error('Login error:', error);

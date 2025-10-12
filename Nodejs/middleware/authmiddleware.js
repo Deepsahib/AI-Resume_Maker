@@ -11,7 +11,7 @@ export const auth = async (req, res, next) => {
     
     try {
         // Use the same secret key as in user controller
-        const decoded = jwt.verify(token, "sahib"); 
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || "sahib"); 
         req.user = decoded.id;
         next();
     } catch (error) {
