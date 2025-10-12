@@ -1,6 +1,6 @@
 // API Configuration
 const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'https://ai-resume-maker-1-cv4m.onrender.com/api',
+  BASE_URL: import.meta.env.VITE_API_URL || 'https://backend-m1fy.onrender.com/api',
   TIMEOUT: 10000,
   
   // API Endpoints

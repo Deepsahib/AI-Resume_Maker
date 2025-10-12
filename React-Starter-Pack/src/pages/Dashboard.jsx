@@ -32,7 +32,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   // API Configuration
-  const API_BASE_URL = 'https://ai-resume-maker-1-cv4m.onrender.com/api';
+  const API_BASE_URL = 'https://backend-m1fy.onrender.com/api';
   
   const getAuthHeaders = () => {
     const token = localStorage.getItem('token');
