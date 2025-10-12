@@ -1236,13 +1236,13 @@ const ResumePreview = ({ resumeData }) => {
           {personal_info.linkedin && (
             <span className="flex items-center gap-1">
               <Linkedin className="size-3" />
-              LinkedIn
+              <a href={personal_info.linkedin.startsWith('http') ? personal_info.linkedin : `https://linkedin.com/in/${personal_info.linkedin}`} target="_blank" rel="noopener noreferrer" className="underline text-blue-600">{personal_info.linkedin}</a>
             </span>
           )}
           {personal_info.website && (
             <span className="flex items-center gap-1">
               <Globe className="size-3" />
-              Website
+              <a href={personal_info.website.startsWith('http') ? personal_info.website : `https://${personal_info.website}`} target="_blank" rel="noopener noreferrer" className="underline text-blue-600">{personal_info.website}</a>
             </span>
           )}
         </div>
@@ -1361,7 +1361,7 @@ const ResumePreview = ({ resumeData }) => {
                 className="px-3 py-1 rounded-full text-white text-sm font-medium"
                 style={{ backgroundColor: accent_color }}
               >
-                {skill}
+                {typeof skill === 'string' ? skill : skill.name}
               </span>
             ))}
           </div>
@@ -1369,7 +1369,7 @@ const ResumePreview = ({ resumeData }) => {
       )}
 
       {/* Empty State */}
-      {!personal_info.full_name && !professional_summary && experience.length === 0 && education.length === 0 && project.length === 0 && skills.length === 0 && (
+      {!personal_info.full_name && !professional_summary && experience.length === 0 && education.length === 0 && project.length === 0 && (!skills || skills.length === 0) && (
         <div className="text-center py-12 text-gray-500">
           <FileText className="size-12 mx-auto mb-4 text-gray-300" />
           <p className="text-lg">Start filling out your information to see the preview</p>
