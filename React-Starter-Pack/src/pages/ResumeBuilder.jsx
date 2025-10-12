@@ -80,7 +80,7 @@ const ResumeBuilder = () => {
   const activeSection = sections[activesectionindex];
 
   // API Configuration
-  const API_BASE_URL = 'http://localhost:3000/api';
+  const API_BASE_URL = 'https://ai-resume-maker-1-cv4m.onrender.com/api';
   
   const getAuthHeaders = () => {
     const token = localStorage.getItem('token');
@@ -160,7 +160,7 @@ const ResumeBuilder = () => {
       // Better error messages for network issues
       let errorMessage = 'Network error';
       if (error.message.includes('fetch')) {
-        errorMessage = 'Cannot connect to server. Make sure backend is running on localhost:3000';
+        errorMessage = 'Cannot connect to server. Please check your internet connection.';
       } else if (error.message.includes('NetworkError')) {
         errorMessage = 'No internet connection. Please check your connection.';
       } else {
