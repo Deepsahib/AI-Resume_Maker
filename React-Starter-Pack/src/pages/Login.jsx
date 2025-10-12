@@ -59,17 +59,25 @@ const Login = () => {
             console.log('Server response:', data)
 
             if (response.ok) {
-                // Store the token in localStorage
-                localStorage.setItem('token', data.token)
-                localStorage.setItem('user', JSON.stringify(data.user))
-                
-                // Show success message
-                setSuccess(state === "login" ? "Login successful!" : "Account created successfully!")
-                
-                // Redirect to home page after a brief delay
-                setTimeout(() => {
-                    navigate('/')
-                }, 1000)
+                if (state === "register") {
+                    // For signup, show success and prompt login
+                    setSuccess("Account created successfully! Please login to continue.")
+                    setTimeout(() => {
+                        setState("login")
+                        setSuccess('')
+                        setFormData({ name: '', email: formData.email, password: '' })
+                    }, 2000)
+                } else {
+                    // For login, store token and redirect
+                    localStorage.setItem('token', data.token)
+                    localStorage.setItem('user', JSON.stringify(data.user))
+                    setSuccess("Login successful!")
+                    
+                    // Redirect to dashboard after successful login
+                    setTimeout(() => {
+                        navigate('/app')
+                    }, 1000)
+                }
             } else {
                 setError(data.message || 'Authentication failed')
             }
