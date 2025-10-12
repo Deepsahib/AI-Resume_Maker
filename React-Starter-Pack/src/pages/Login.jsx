@@ -18,7 +18,7 @@ const Login = () => {
     })
 
     // API Configuration
-    const API_BASE_URL = 'https://backend-m1fy.onrender.com/api';
+    const API_BASE_URL = 'https://backedn-ohvy.onrender.com/api';
 
     const handleSubmit = async (e) => {
         e.preventDefault()

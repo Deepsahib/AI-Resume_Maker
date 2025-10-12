@@ -32,7 +32,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   // API Configuration
-  const API_BASE_URL = 'https://backend-m1fy.onrender.com/api';
+  const API_BASE_URL = 'https://backedn-ohvy.onrender.com/api';
   
   const getAuthHeaders = () => {
     const token = localStorage.getItem('token');
