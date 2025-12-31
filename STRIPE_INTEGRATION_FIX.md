@@ -33,7 +33,7 @@ Then update the template to handle the undefined case properly:
 
 ```html
 @if(elementsOptions?.clientSecret) {
-    <ngx-stripe-elements [elementsOptions]="elementsOptions!" (elements)="onElementsReady($event)">
+    <ngx-stripe-elements [elementsOptions]="elementsOptions" (elements)="onElementsReady($event)">
         <ngx-stripe-payment [options]="paymentElementOptions" (ready)="stripeReady()"/>
     </ngx-stripe-elements>
 }

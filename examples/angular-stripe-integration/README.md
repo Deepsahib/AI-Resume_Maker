@@ -103,11 +103,13 @@ createCoursePaymentIntent() {
 
 4. **Use the Component**
    - Copy the component files to your project
+   - **Adjust import paths** in `step-2.component.ts` to match your project structure
    - Import in your module
    - Use in your routing or parent component
 
 ## Important Notes
 
+- **Import Paths**: The example uses relative paths like `'../../../../environments/environments.dev'`. Adjust these based on your project structure.
 - Always initialize properties that will be accessed by third-party libraries
 - Use optional chaining (`?.`) when accessing potentially undefined properties
 - Handle errors from async operations

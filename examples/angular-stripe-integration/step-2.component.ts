@@ -1,4 +1,5 @@
 import { Component, inject, ViewChild } from '@angular/core';
+// NOTE: Adjust these import paths based on your project structure
 import { environment } from '../../../../environments/environments.dev';
 import { StripeElementsOptions, StripeElement, StripeElements, StripePaymentElementOptions } from '@stripe/stripe-js';
 import { injectStripe, StripeElementsDirective, StripeService as NgxStripeService} from 'ngx-stripe';
@@ -54,7 +55,7 @@ export class Step2 {
     });
     this.Store.select(selectedCourse).pipe(takeUntil(this.$destroy)).subscribe((res: any) => {
       this.selectedCourse = res;
-    })
+    });
     this.currTimezoneAndOffset = this.commonService.getUserTimezoneWithGMT();
     if (this.bookingDetails?.bookingType == 'TRIAL') {
       this.slotDuration = 30;
@@ -108,7 +109,8 @@ export class Step2 {
     const payload: any = {};
     console.log(this.selectedCourse.price)
     payload['teacher_id'] = this.selectedTutorId;
-    payload['amount'] = 1400;
+    // ✅ FIXED: Use calculated amount instead of hardcoded value
+    payload['amount'] = this.totalPayableAmount;
     payload['course_id'] = this.selectedCourse._id;
     payload['total_lessons'] = this.selectedCourse?.package?.package_lesson;
     payload['booking_type'] = this.bookingDetails.bookingType;
@@ -140,9 +142,11 @@ export class Step2 {
   }
 
   confirmPayment() {
-    // Ensure stripe element is ready before confirming payment
+    // ✅ IMPROVED: Better validation with user feedback
     if (!this.stripeElement || !this.clientSecret) {
-      console.error('Stripe elements not ready or client secret missing');
+      const errorMsg = 'Payment system not ready. Please wait and try again.';
+      console.error(errorMsg);
+      this.commonService.showError(errorMsg); // Show user-friendly error
       return;
     }
 
