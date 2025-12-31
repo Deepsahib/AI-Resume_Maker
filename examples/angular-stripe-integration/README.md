@@ -2,6 +2,12 @@
 
 This directory contains a corrected implementation of an Angular component that integrates with Stripe using the `ngx-stripe` library.
 
+> **Note**: This is example/demo code focused on demonstrating the Stripe integration fix. For production use, consider:
+> - Adding proper TypeScript interfaces instead of `any` types
+> - Removing console.log statements and using a proper logging service
+> - Cleaning up unused properties
+> - Adding comprehensive error handling and validation
+
 ## The Problem
 
 The original implementation had a critical error:
