@@ -135,7 +135,7 @@ export class Step2 {
   createCoursePaymentIntent() {
     const payload: any = {};
     payload['teacher_id'] = this.selectedTutorId;
-    payload['amount'] = 1400;
+    payload['amount'] = this.totalPayableAmount;
     payload['course_id'] = this.selectedCourse._id;
     
     // ✅ FIX #2: Add proper error handling
@@ -230,6 +230,7 @@ export class Step2 {
 | Template guard | Redundant check | Simple optional chaining |
 | Loading state | None | Shows "Loading payment options..." |
 | Null checks | Missing | Added in `confirmPayment()` |
+| Amount value | Hardcoded `1400` | Uses `this.totalPayableAmount` |
 
 ## Key Takeaways
 

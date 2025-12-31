@@ -214,7 +214,7 @@ export class Step2 {
     const payload: any = {};
     console.log(this.selectedCourse.price)
     payload['teacher_id'] = this.selectedTutorId;
-    payload['amount'] = 1400;
+    payload['amount'] = this.totalPayableAmount;
     payload['course_id'] = this.selectedCourse._id;
     payload['total_lessons'] = this.selectedCourse?.package?.package_lesson;
     payload['booking_type'] = this.bookingDetails.bookingType;
