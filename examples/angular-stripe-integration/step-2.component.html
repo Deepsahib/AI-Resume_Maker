@@ -1,0 +1,32 @@
+<!-- step-2.component.html -->
+
+<!-- 
+  ✅ FIXED: Template with proper null checking
+  The @if condition ensures that both elementsOptions exists AND has a clientSecret
+  before attempting to render the Stripe elements
+-->
+@if(elementsOptions?.clientSecret) {
+    <div class="payment-container">
+        <ngx-stripe-elements 
+            [elementsOptions]="elementsOptions" 
+            (elements)="onElementsReady($event)">
+            <ngx-stripe-payment 
+                [options]="paymentElementOptions" 
+                (ready)="stripeReady()"
+            />
+        </ngx-stripe-elements>
+        
+        <button 
+            type="button" 
+            (click)="confirmPayment()"
+            [disabled]="!isStripeReady"
+            class="confirm-payment-btn">
+            Confirm Payment
+        </button>
+    </div>
+} @else {
+    <!-- ✅ IMPROVEMENT: Show loading state while waiting for payment intent -->
+    <div class="loading-container">
+        <p>Loading payment options...</p>
+    </div>
+}
