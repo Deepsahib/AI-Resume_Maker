@@ -1,0 +1,46 @@
+/* step-2.component.css */
+
+.payment-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.confirm-payment-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 12px 24px;
+  background-color: #635bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirm-payment-btn:hover:not(:disabled) {
+  background-color: #4f46e5;
+}
+
+.confirm-payment-btn:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.loading-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.loading-container p {
+  font-size: 16px;
+  margin: 0;
+}
